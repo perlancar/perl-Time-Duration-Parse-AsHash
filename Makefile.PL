@@ -7,5 +7,7 @@ requires('Exporter::Lite');
 build_requires('Test::More');
 build_requires('Time::Duration');
 
+perl_version('5.006');
+
 auto_include;
 WriteAll;
