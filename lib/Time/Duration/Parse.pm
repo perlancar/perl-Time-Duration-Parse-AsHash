@@ -1,7 +1,8 @@
 package Time::Duration::Parse;
 
 use strict;
-our $VERSION = '0.06';
+use warnings;
+our $VERSION = '0.07';
 
 use Carp;
 use Exporter::Lite;
