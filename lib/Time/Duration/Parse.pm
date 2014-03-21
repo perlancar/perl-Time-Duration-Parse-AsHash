@@ -88,6 +88,8 @@ Parses duration string and returns seconds. When it encounters an
 error in a given string, it dies an exception saying "Unknown
 timespec: blah blah blah". This function is exported by default.
 
+=back
+
 =head1 AUTHOR
 
 Tatsuhiko Miyagawa E<lt>miyagawa@bulknews.netE<gt>
