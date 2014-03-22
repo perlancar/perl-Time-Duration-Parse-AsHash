@@ -7,5 +7,7 @@ requires('Exporter::Lite');
 build_requires('Test::More');
 build_requires('Time::Duration');
 
+repository 'https://github.com/neilbowers/Time-Duration-Parse';
+
 auto_include;
 WriteAll;
