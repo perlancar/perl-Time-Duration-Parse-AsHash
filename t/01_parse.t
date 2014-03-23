@@ -1,5 +1,5 @@
 use strict;
-use Test::More tests => 37;
+use Test::More 0.88 tests => 37;
 
 use Time::Duration::Parse;
 
