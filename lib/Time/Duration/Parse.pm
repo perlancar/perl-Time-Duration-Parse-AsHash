@@ -115,6 +115,16 @@ CPAN.
 L<Time::Duration::Parse::More> has the same interface as this module,
 but supports more expressions and memoization.
 
+L<Time::Duration> can be used for the reverse of this module:
+given a number of seconds it will provide an English description of
+the duration.
+
+L<Time::Duration::Object> provides an OO interface to L<Time::Duration>.
+
+L<Time::Duration::LocaleObject> provides an OO interface to the
+C<Time::Duration::??> modules, which provide language-specific versions
+of L<Time::Duration>.
+
 L<Date::Manip>,
 L<DateTime::Format::Duration>,
 L<http://use.perl.org/~miyagawa/journal/30310>
