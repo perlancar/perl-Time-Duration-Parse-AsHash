@@ -9,7 +9,7 @@ test_requires('Time::Duration' => '1.06');
 
 perl_version('5.006');
 license('perl');
-repository 'https://github.com/neilbowers/Time-Duration-Parse';
+repository('https://github.com/neilbowers/Time-Duration-Parse');
 
 auto_include;
 WriteAll;
