@@ -1,5 +1,10 @@
 Revision history for Perl extension Time::Duration::Parse
 
+0.09 2014-03-23
+    - Test::More and Time::Duration were listed as build_requires;
+      changed them to test_requires, with versions. Wonder if this was
+      the cause of the small number of CPAN Testers fails?
+
 0.08 2014-03-23
     - Can now have a leading '+', as in '+2h'.
       Suggested by MSCHWERN in RT#66572

@@ -3,9 +3,9 @@ use inc::Module::Install;
 name('Time-Duration-Parse');
 all_from('lib/Time/Duration/Parse.pm');
 
-requires('Exporter::Lite');
-build_requires('Test::More');
-build_requires('Time::Duration');
+requires('Exporter::Lite' => '0.02');
+test_requires('Test::More' => '0.88');
+test_requires('Time::Duration' => '1.06');
 
 perl_version('5.006');
 license('perl');
