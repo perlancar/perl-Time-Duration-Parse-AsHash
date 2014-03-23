@@ -1,6 +1,8 @@
 Revision history for Perl extension Time::Duration::Parse
 
 0.08 2014-03-23
+    - Can now have a leading '+', as in '+2h'.
+      Suggested by MSCHWERN in RT#66572
     - Added github repo to metadata (thanks dsteinbrunner)
     - Added github repo to pod
     - Added Time::Duration::Parse::More to SEE ALSO

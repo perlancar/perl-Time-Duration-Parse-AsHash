@@ -1,5 +1,5 @@
 use strict;
-use Test::More 0.88 tests => 37;
+use Test::More 0.88 tests => 38;
 
 use Time::Duration::Parse;
 
@@ -29,6 +29,7 @@ ok_duration '-6 minutes', -360;
 ok_duration '1 hr', 3600;
 ok_duration '3s', 3;
 ok_duration '1hr', 3600;
+ok_duration '+2h', 7200;
 
 ok_duration '1d 2:03', 93780;
 ok_duration '1d 2:03:01', 93781;

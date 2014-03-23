@@ -21,6 +21,9 @@ my %Units = ( map(($_,             1), qw(s second seconds sec secs)),
 sub parse_duration {
     my $timespec = shift;
 
+    # You can have an optional leading '+', which has no effect
+    $timespec =~ s/^\s*\+\s*//;
+
     # Treat a plain number as a number of seconds (and parse it later)
     if ($timespec =~ /^\s*(-?\d+(?:[.,]\d+)?)\s*$/) {
         $timespec = "$1s";
