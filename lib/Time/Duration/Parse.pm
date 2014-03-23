@@ -2,7 +2,7 @@ package Time::Duration::Parse;
 
 use strict;
 use warnings;
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 
 use Carp;
 use Exporter::Lite;
@@ -94,22 +94,6 @@ timespec: blah blah blah". This function is exported by default.
 
 =back
 
-=head1 REPOSITORY
-
-L<https://github.com/neilbowers/Time-Duration-Parse>
-
-=head1 AUTHOR
-
-Tatsuhiko Miyagawa E<lt>miyagawa@bulknews.netE<gt>
-
-=head1 COPYRIGHT
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
-
-Some internal code is taken from Cache and Cache::Cache modules on
-CPAN.
-
 =head1 SEE ALSO
 
 L<Time::Duration::Parse::More> has the same interface as this module,
@@ -128,5 +112,21 @@ of L<Time::Duration>.
 L<Date::Manip>,
 L<DateTime::Format::Duration>,
 L<http://use.perl.org/~miyagawa/journal/30310>
+
+=head1 REPOSITORY
+
+L<https://github.com/neilbowers/Time-Duration-Parse>
+
+=head1 AUTHOR
+
+Tatsuhiko Miyagawa E<lt>miyagawa@bulknews.netE<gt>
+
+=head1 COPYRIGHT
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+Some internal code is taken from Cache and Cache::Cache modules on
+CPAN.
 
 =cut
