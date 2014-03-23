@@ -2,7 +2,7 @@ package Time::Duration::Parse;
 
 use strict;
 use warnings;
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 use Carp;
 use Exporter::Lite;
@@ -90,6 +90,10 @@ error in a given string, it dies an exception saying "Unknown
 timespec: blah blah blah". This function is exported by default.
 
 =back
+
+=head1 REPOSITORY
+
+L<https://github.com/neilbowers/Time-Duration-Parse>
 
 =head1 AUTHOR
 
