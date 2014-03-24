@@ -1,5 +1,10 @@
 Revision history for Perl extension Time::Duration::Parse
 
+0.10 2014-03-24
+    - Switched to Dist::Zilla. The Module::Install Makefile.PL was resulting
+      in dependency problems and CPAN Testers fails, and I'm not familiar with
+      it. Easier to switch. Thanks to ZEFRAM for pointing out the problem.
+
 0.09 2014-03-23
     - Test::More and Time::Duration were listed as build_requires;
       changed them to test_requires, with versions. Wonder if this was
