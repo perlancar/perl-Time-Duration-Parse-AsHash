@@ -1,5 +1,10 @@
 Revision history for Perl extension Time-Duration-Parse-AsHash
 
+0.10.2  2015-09-26 (PERLANCAR)
+
+	- Support mo(s) and mon(s) for months.
+
+
 0.10.1   2015-09-25 (PERLANCAR)
 
          - First release, forked from Time-Duration-Parse.
