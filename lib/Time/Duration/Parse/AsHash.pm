@@ -17,7 +17,7 @@ my %Units = ( map(($_, "seconds"), qw(s second seconds sec secs)),
               map(($_,   "hours"), qw(h hr hour hours)),
               map(($_,    "days"), qw(d day days)),
               map(($_,   "weeks"), qw(w week weeks)),
-              map(($_,  "months"), qw(M month months)),
+              map(($_,  "months"), qw(M month months mon mons mo mos)),
               map(($_,   "years"), qw(y year years)) );
 
 sub parse_duration {
