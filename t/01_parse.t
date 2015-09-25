@@ -1,11 +1,13 @@
-use strict;
-use Test::More 0.88 tests => 38;
+#!perl
 
-use Time::Duration::Parse;
+use strict;
+use Test::More 0.98;
+
+use Time::Duration::Parse::AsHash;
 
 sub ok_duration {
-    my($spec, $seconds) = @_;
-    is parse_duration($spec), $seconds, "$spec = $seconds";
+    my($spec, $res) = @_;
+    is_deeply(parse_duration($spec), $res) or diag explain $res;
 }
 
 sub fail_duration {
@@ -14,47 +16,49 @@ sub fail_duration {
     ok $@, $@;
 }
 
-ok_duration '3', 3;
-ok_duration '3 seconds', 3;
-ok_duration '3 Seconds', 3;
-ok_duration '3 s', 3;
-ok_duration '6 minutes', 360;
-ok_duration '6 minutes and 3 seconds', 363;
-ok_duration '6 Minutes and 3 seconds', 363;
-ok_duration '1 day', 86400;
-ok_duration '1 day, and 3 seconds', 86403;
-ok_duration '-1 seconds', -1;
-ok_duration '-6 minutes', -360;
+ok_duration '3', {seconds=>3};
+ok_duration '3 seconds', {seconds=>3};
+ok_duration '3 Seconds', {seconds=>3};
+ok_duration '3 s', {seconds=>3};
+ok_duration '6 minutes', {minutes=>6};
+ok_duration '6 minutes and 3 seconds', {minutes=>6, seconds=>3};
+ok_duration '6 Minutes and 3 seconds', {minutes=>6, seconds=>3};
+ok_duration '1 day', {days=>1};
+ok_duration '1 day, and 3 seconds', {days=>1, seconds=>3};
+ok_duration '-1 seconds', {seconds=>-1};
+ok_duration '-6 minutes', {minutes=>-6};
 
-ok_duration '1 hr', 3600;
-ok_duration '3s', 3;
-ok_duration '1hr', 3600;
-ok_duration '+2h', 7200;
+ok_duration '1 hr', {hours=>1};
+ok_duration '3s', {seconds=>3};
+ok_duration '1hr', {hours=>1};
+ok_duration '+2h', {hours=>2};
 
-ok_duration '1d 2:03', 93780;
-ok_duration '1d 2:03:01', 93781;
-ok_duration '1d -24:00', 0;
-ok_duration '2:03', 7380;
+ok_duration '1d 2:03', {days=>1, hours=>2, minutes=>3};
+ok_duration '1d 2:03:01', {days=>1, hours=>2, minutes=>3, seconds=>1};
+ok_duration '1d -24:00', {days=>1, hours=>-24};
+ok_duration '2:03', {hours=>2, minutes=>3};
 
-ok_duration ' 1s   ', 1;
-ok_duration '   1  ', 1;
-ok_duration '  1.3 ', 1;
+ok_duration ' 1s   ', {seconds=>1};
+ok_duration '   1  ', {seconds=>1};
+ok_duration '  1.3 ', {seconds=>1.3};
 
-ok_duration '1.5h', 5400;
-ok_duration '1,5h', 5400;
-ok_duration '1.5h 30m', 7200;
-ok_duration '1.9s', 2;          # Check rounding
-ok_duration '1.3s', 1;
-ok_duration '1.3', 1;
-ok_duration '1.9', 2;
+ok_duration '1.5h', {hours=>1.5};
+ok_duration '1,5h', {hours=>1.5};
+ok_duration '1.5h 30m', {hours=>1.5, minutes=>30};
+ok_duration '1.9s', {seconds=>1.9};          # Check rounding
+ok_duration '1.3s', {seconds=>1.3};
+ok_duration '1.3', {seconds=>1.3};
+ok_duration '1.9', {seconds=>1.9};
 
-ok_duration '1h,30m, 3s', 5403;
-ok_duration '1h and 30m,3s', 5403;
-ok_duration '1,5h, 3s', 5403;
-ok_duration '1,5h and 3s', 5403;
-ok_duration '1.5h, 3s', 5403;
-ok_duration '1.5h and 3s', 5403;
+ok_duration '1h,30m, 3s', {hours=>1, minutes=>30, seconds=>3};
+ok_duration '1h and 30m,3s', {hours=>1, minutes=>30, seconds=>3};
+ok_duration '1,5h, 3s', {hours=>1.5, seconds=>3};
+ok_duration '1,5h and 3s', {hours=>1.5, seconds=>3};
+ok_duration '1.5h, 3s', {hours=>1.5, seconds=>3};
+ok_duration '1.5h and 3s', {hours=>1.5, seconds=>3};
 
 fail_duration '3 sss';
 fail_duration '6 minutes and 3 sss';
 fail_duration '6 minutes, and 3 seconds a';
+
+done_testing;
