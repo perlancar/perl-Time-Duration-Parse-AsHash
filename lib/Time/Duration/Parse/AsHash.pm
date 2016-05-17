@@ -112,18 +112,15 @@ C<nanoseconds> (or C<ns>). This will also be returned in C<seconds> key.
 
 C<decades>. This will be returned in C<years> key.
 
+=back
+
 
 =head1 FUNCTIONS
 
-=over 4
-
-=item parse_duration
-
-  $res = parse_duration($string);
+=head2 parse_duration(str) => hash
 
 Parses duration string and returns hash. This function is exported by default.
 
-=back
 
 =head1 SEE ALSO
 

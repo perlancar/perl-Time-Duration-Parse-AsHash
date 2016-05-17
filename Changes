@@ -1,5 +1,15 @@
 Revision history for Perl extension Time-Duration-Parse-AsHash
 
+0.10.3  2016-05-17 (PERLANCAR)
+
+        - Support milliseconds, microseconds, nanoseconds, decades.
+
+        - Support decimal seconds in hh:mm:ss.
+
+        - [Removed] Remove devscripts/bench (converted to Bencher scenario, see
+          Bencher::Scenario::TimeDurationParse::parse_duration).
+
+
 0.10.2  2015-09-26 (PERLANCAR)
 
 	- Support mo(s) and mon(s) for months.
