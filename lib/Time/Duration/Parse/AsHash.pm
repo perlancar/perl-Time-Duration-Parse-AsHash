@@ -74,12 +74,12 @@ sub parse_duration {
     if ($_[0]) {
         return
             ( $res{seconds} || 0) +
-            (($res{minutes} || 0) *      60) +
-            (($res{hours}   || 0) *    3600) +
-            (($res{days}    || 0) *   86400) +
-            (($res{weeks}   || 0) * 7*86400) +
-            (($res{months} || 0) * 30*86400) +
-            (($res{years} || 0) * 365*86400);
+            (($res{minutes} || 0) *        60) +
+            (($res{hours}   || 0) *      3600) +
+            (($res{days}    || 0) *     86400) +
+            (($res{weeks}   || 0) *   7*86400) +
+            (($res{months}  || 0) *  30*86400) +
+            (($res{years}   || 0) * 365*86400);
     }
 
     \%res;
