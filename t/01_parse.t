@@ -17,6 +17,9 @@ sub fail_duration {
 }
 
 ok_duration '3', {seconds=>3};
+ok_duration '3 ns', {seconds=>3e-9};
+ok_duration '3 microsecond', {seconds=>3e-6};
+ok_duration '3 ms', {seconds=>3e-3};
 ok_duration '3 seconds', {seconds=>3};
 ok_duration '3 Seconds', {seconds=>3};
 ok_duration '3 s', {seconds=>3};
@@ -25,6 +28,12 @@ ok_duration '6 minutes and 3 seconds', {minutes=>6, seconds=>3};
 ok_duration '6 Minutes and 3 seconds', {minutes=>6, seconds=>3};
 ok_duration '1 day', {days=>1};
 ok_duration '1 day, and 3 seconds', {days=>1, seconds=>3};
+ok_duration '2 weeks', {weeks=>2};
+ok_duration '2 months', {months=>2};
+ok_duration '2 years', {years=>2};
+ok_duration '2 decades', {years=>20};
+
+# negative
 ok_duration '-1 seconds', {seconds=>-1};
 ok_duration '-6 minutes', {minutes=>-6};
 
@@ -33,10 +42,13 @@ ok_duration '3s', {seconds=>3};
 ok_duration '1hr', {hours=>1};
 ok_duration '+2h', {hours=>2};
 
+# h:m & h:m:s
 ok_duration '1d 2:03', {days=>1, hours=>2, minutes=>3};
 ok_duration '1d 2:03:01', {days=>1, hours=>2, minutes=>3, seconds=>1};
 ok_duration '1d -24:00', {days=>1, hours=>-24};
 ok_duration '2:03', {hours=>2, minutes=>3};
+ok_duration '2:03:04', {hours=>2, minutes=>3, seconds=>4};
+ok_duration '2:03:04.5', {hours=>2, minutes=>3, seconds=>4.5};
 
 ok_duration ' 1s   ', {seconds=>1};
 ok_duration '   1  ', {seconds=>1};
