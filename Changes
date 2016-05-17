@@ -1,5 +1,11 @@
 Revision history for Perl extension Time-Duration-Parse-AsHash
 
+0.10.4  2016-05-17 (PERLANCAR)
+
+	- Add option to return number like Time::Duration::Parse by passing
+	  a true value as second argument of parse_duration().
+
+
 0.10.3  2016-05-17 (PERLANCAR)
 
         - Support milliseconds, microseconds, nanoseconds, decades.
