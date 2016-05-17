@@ -10,6 +10,11 @@ sub ok_duration {
     is_deeply(parse_duration($spec), $res) or diag explain $res;
 }
 
+sub ok_duration_as_num {
+    my($spec, $res) = @_;
+    is(parse_duration($spec, 1), $res) or diag explain $res;
+}
+
 sub fail_duration {
     my $spec = shift;
     eval { parse_duration($spec) };
@@ -72,5 +77,8 @@ ok_duration '1.5h and 3s', {hours=>1.5, seconds=>3};
 fail_duration '3 sss';
 fail_duration '6 minutes and 3 sss';
 fail_duration '6 minutes, and 3 seconds a';
+
+# return number
+ok_duration_as_num '6 minutes and 3 seconds', 363;
 
 done_testing;

@@ -71,6 +71,17 @@ sub parse_duration {
         delete $res{$_} if $res{$_} == 0;
     }
 
+    if ($_[0]) {
+        return
+            ( $res{seconds} || 0) +
+            (($res{minutes} || 0) *      60) +
+            (($res{hours}   || 0) *    3600) +
+            (($res{days}    || 0) *   86400) +
+            (($res{weeks}   || 0) * 7*86400) +
+            (($res{months} || 0) * 30*86400) +
+            (($res{years} || 0) * 365*86400);
+    }
+
     \%res;
 }
 
@@ -81,7 +92,8 @@ sub parse_duration {
 
   use Time::Duration::Parse::AsHash;
 
-  my $res = parse_duration("2 minutes and 3 seconds"); # => {minutes=>2, seconds=>3}
+  my $res = parse_duration("2 minutes and 3 seconds");    # => {minutes=>2, seconds=>3}
+     $res = parse_duration("2 minutes and 3 seconds", 1); # => 123
 
 
 =head1 DESCRIPTION
@@ -90,10 +102,13 @@ Time::Duration::Parse::AsHash is like L<Time::Duration::Parse> except:
 
 =over
 
-=item * It returns a hashref of parsed duration elements instead of number of seconds
+=item * By default it returns a hashref of parsed duration elements instead of number of seconds
 
 There are some circumstances when you want this, e.g. when feeding into
 L<DateTime::Duration> and you want to count for leap seconds.
+
+To return number of seconds like Time::Duration::Parse, pass a true value as the
+second argument.
 
 =item * Seconds are not rounded by default
 
@@ -112,14 +127,24 @@ C<nanoseconds> (or C<ns>). This will also be returned in C<seconds> key.
 
 C<decades>. This will be returned in C<years> key.
 
+=item * It has a lower startup overhead
+
+By avoiding modules like L<Carp> and L<Exporter::Lite>, even L<strict> and
+L<warnings>.
+
 =back
 
 
 =head1 FUNCTIONS
 
-=head2 parse_duration(str) => hash
+=head2 parse_duration($str [, $as_secs ]) => hash
 
-Parses duration string and returns hash. This function is exported by default.
+Parses duration string and returns hash (unless when the second argument is
+true, in which case will return the number of seconds). Dies on parse failure.
+This function is exported by default.
+
+Note that number of seconds is an approximation: leap seconds are not regarded
+(so a minute is always 60 seconds), a month is 30 days, a year is 365 days.
 
 
 =head1 SEE ALSO
