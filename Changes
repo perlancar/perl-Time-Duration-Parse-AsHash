@@ -1,5 +1,13 @@
 Revision history for Perl extension Time-Duration-Parse-AsHash
 
+0.10.5  2016-05-17 (PERLANCAR)
+
+        - No functional changes.
+
+        - [build] Rebuild, fix syntax of #IFUNBUILT to properly comment usage of
+          strict+warnings.
+
+
 0.10.4  2016-05-17 (PERLANCAR)
 
 	- Add option to return number like Time::Duration::Parse by passing

@@ -6,7 +6,7 @@ package Time::Duration::Parse::AsHash;
 #IFUNBUILT
 use strict;
 use warnings;
-#IFUNBUILT
+#END IFUNBUILT
 
 use Exporter;
 our @ISA    = qw( Exporter );
@@ -130,7 +130,7 @@ C<decades>. This will be returned in C<years> key.
 =item * It has a lower startup overhead
 
 By avoiding modules like L<Carp> and L<Exporter::Lite>, even L<strict> and
-L<warnings>.
+L<warnings> (starts up in ~3m vs ~9ms on my computer).
 
 =back
 
