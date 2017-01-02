@@ -90,10 +90,12 @@ sub parse_duration {
 
 =head1 SYNOPSIS
 
-  use Time::Duration::Parse::AsHash;
+ use Time::Duration::Parse::AsHash;
 
-  my $res = parse_duration("2 minutes and 3 seconds");    # => {minutes=>2, seconds=>3}
-     $res = parse_duration("2 minutes and 3 seconds", 1); # => 123
+ my $res = parse_duration("2 minutes and 3 seconds");    # => {minutes=>2, seconds=>3}
+    $res = parse_duration("2m3.2s", 1); # => 123.2
+
+    $res = parse_duration("01:02:03", 1); # => 3723
 
 
 =head1 DESCRIPTION
@@ -110,22 +112,25 @@ L<DateTime::Duration> and you want to count for leap seconds.
 To return number of seconds like Time::Duration::Parse, pass a true value as the
 second argument.
 
-=item * Seconds are not rounded by default
+=item * By default seconds are not rounded
 
-For example: C<"0.1s"> or C<100ms> will return result C<< { seconds => 0.1 } >>.
+For example: C<"0.1s"> or C<100ms> will return result C<< { seconds => 0.1 } >>,
+and C<"2.3s"> will return C<< { seconds => 2.3 } >>.
 
-Also, in addition to C<01:02:03> being recognized as C<1h2min3s>,
+Also, <01:02:03> being recognized as C<1h2min3s>,
 C<01:02:03.4567> will also be recognized as C<1h2min3.4567s>.
 
-=item * Extra elements recognized
+=item * It recognizes more duration units
 
-C<milliseconds> (or C<ms>). This will be returned in C<seconds> key.
+C<milliseconds> (C<ms>), which will be returned in the C<seconds> key, for
+example C<"400ms"> returns C<< { seconds => 0.4 } >>.
 
 C<microseconds>. This will also be returned in C<seconds> key.
 
-C<nanoseconds> (or C<ns>). This will also be returned in C<seconds> key.
+C<nanoseconds> (C<ns>). This will also be returned in C<seconds> key.
 
-C<decades>. This will be returned in C<years> key.
+C<decades>. This will be returned in C<years> key, for example C<"1.5 decades">
+will return C<< { years => 15 } >>.
 
 =item * It has a lower startup overhead
 
@@ -141,10 +146,17 @@ L<warnings> (starts up in ~3m vs ~9ms on my computer).
 
 Parses duration string and returns hash (unless when the second argument is
 true, in which case will return the number of seconds). Dies on parse failure.
+
+Currently two forms of string are recognized: the first is a series of number
+and time units (e.g. "2 days, 3 hours, 4.5 minutes" or "2h3m4s") and the second
+is time in the format of hh:mm:ss (the seconds can contain decimal numbers) or
+hh:mm.
+
 This function is exported by default.
 
-Note that number of seconds is an approximation: leap seconds are not regarded
-(so a minute is always 60 seconds), a month is 30 days, a year is 365 days.
+Note that if the function is instructed to return number of seconds, the result
+is an approximation: leap seconds are not regarded (so a minute is always 60
+seconds), a month is always 30 days, a year is always 365 days.
 
 
 =head1 SEE ALSO
