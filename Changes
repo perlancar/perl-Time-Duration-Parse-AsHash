@@ -1,5 +1,13 @@
 Revision history for Perl extension Time-Duration-Parse-AsHash
 
+0.10.6  2017-01-02 (PERLANCAR)
+
+	- No functional changes.
+
+	- [doc] Some rewording/rephrasing and more examples for better
+	  clarity.
+
+
 0.10.5  2016-05-17 (PERLANCAR)
 
         - No functional changes.
