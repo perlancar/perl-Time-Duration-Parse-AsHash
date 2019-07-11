@@ -1,4 +1,4 @@
-0.10.6  2017-01-02 (PERLANCAR)
+0.10.6  2017-01-02  Released-By: PERLANCAR
 
 	- No functional changes.
 
@@ -6,7 +6,7 @@
 	  clarity.
 
 
-0.10.5  2016-05-17 (PERLANCAR)
+0.10.5  2016-05-17  Released-By: PERLANCAR
 
         - No functional changes.
 
@@ -14,13 +14,13 @@
           strict+warnings.
 
 
-0.10.4  2016-05-17 (PERLANCAR)
+0.10.4  2016-05-17  Released-By: PERLANCAR
 
 	- Add option to return number like Time::Duration::Parse by passing
 	  a true value as second argument of parse_duration().
 
 
-0.10.3  2016-05-17 (PERLANCAR)
+0.10.3  2016-05-17  Released-By: PERLANCAR
 
         - Support milliseconds, microseconds, nanoseconds, decades.
 
@@ -30,11 +30,11 @@
           Bencher::Scenario::TimeDurationParse::parse_duration).
 
 
-0.10.2  2015-09-26 (PERLANCAR)
+0.10.2  2015-09-26  Released-By: PERLANCAR
 
 	- Support mo(s) and mon(s) for months.
 
 
-0.10.1   2015-09-25 (PERLANCAR)
+0.10.1   2015-09-25  Released-By: PERLANCAR
 
          - First release, forked from Time-Duration-Parse.
